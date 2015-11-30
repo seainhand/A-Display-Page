@@ -1,0 +1,324 @@
+@import "compass/reset";
+@import "compass/css3";
+
+$background-color: #eeeeee;
+$text-color: #3e3e3e;
+$light-text-color: #eeeeee;
+$heading-color: #415065;
+/*415065*/
+$mask-color: #333333;
+@mixin section-title() {
+    font-size: 2em;
+    text-transform: uppercase;
+    color: hsl(160, 90%, 40%);
+    padding: 2em 0;
+
+    &:after {
+        content: "";
+        display: block;
+        background-color: #cccccc;
+        width: 2em;
+        height: .2em;
+        margin: .4em auto;
+    }
+}
+
+@mixin clearfix() {
+	&:after{
+		display:block;
+		clear:both;
+		content:"";
+		visibility:hidden;
+		height:0;
+	} 
+	zoom:1;
+}
+
+body{
+	font-family:"Open Sans"; 
+	font-size: 62.5%;
+	text-align: center;
+	background-color: $background-color;
+	width: 100%;
+}
+
+header{
+	padding: 0 1em;
+	background-color: hsl(160, 90%, 40%);
+	li{
+		float: left;
+		a{
+			font-size: 1.5em;
+			text-decoration: none;
+			color:white;
+			display: inline-block;
+			padding: 1em 1em;
+		}
+		&:hover{
+			background-color:  hsl(160, 90%, 35%);
+		}
+
+	}
+	@include clearfix;
+}
+
+.hero{
+	width: 100%;
+	min-height: 50em;
+	position: relative;
+	background-color: $mask-color;
+	z-index: 1;
+
+	&:after{
+		background:url("../images/hero.jpg");
+		background-size: cover;
+		position: absolute;
+		content:"";
+		z-index: -1;
+		opacity: 0.2;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left:0;
+	}
+
+	h2{
+		font-size: 6em;
+		font-weight: bold;
+		padding:3em 0 1em 0;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	p{
+		max-width: 70%;
+		font-size: 1.5em;
+		font-weight: lighter;
+		color:#cecece;
+		line-height: 1.4;
+		margin: 0 auto;
+		padding:1em 0 8em 0;
+		span{
+			color: hsl(160, 90%, 40%);
+		}
+	}
+}
+ 
+.topics{
+	background-color: white;
+	padding:2em 0 4em 0;
+
+	h3{
+		@include section-title;
+	}
+
+	ul{
+		margin-left: 10%;
+		width: 80%;
+		text-align: center;
+
+	}
+
+	li{
+		display: inline-block;
+		width: 33%;
+
+		h4{
+			font-size: 1.5em;
+			padding: 1em 0;
+			font-weight: bold;
+		}
+
+		i{
+			font-size: 3em;
+		}
+
+		p{
+			line-height: 1.4;
+			color: #6e6e6e;
+			padding:0 8em;
+			margin-bottom: 4em;
+		}
+	}
+	@include clearfix;
+}
+
+
+.sample{
+	width:80%;
+	margin:2em auto;
+	li{
+		width: 50%;
+
+		.thumb{
+			width:100%; 
+			overflow:hidden;
+			img{
+				width:100%;
+				margin: 0 auto;
+			}
+		}
+
+		.description{
+			h4{
+				text-align: left;
+				padding-left: 1.5em;
+				padding-bottom: 10px;
+				font-size:3em;
+			}
+			p{
+				font-size: 2em;
+				font-weight: lighter;
+				line-height: 1.4;
+				color:#6e6e6e;
+				text-align: left;
+				padding:0.5em 2em;
+			}
+		}
+		@include clearfix;
+	}
+}
+
+#week_1{
+	li{
+		float: left; 
+	}
+	h3{
+		@include section-title;
+	}
+		@include clearfix;
+}	
+
+#week_2{
+	li{
+		float: right; 
+	}
+		@include clearfix;
+}
+
+.page_gallery{
+	padding-bottom: 8em;
+	background-color: white;
+
+	h3{
+		@include section-title;
+	}
+	ul{
+		margin-left: 10%;
+		width: 80%;
+	}
+	li{
+		margin-top: 0em;
+		float: left;
+		width:33.33%;
+		box-sizing:border-box;
+		position: relative;
+		height: 20em;
+		overflow:hidden;
+
+		.case{
+			width:100%;
+		}
+
+		&:hover{
+			.information{
+				top:13em;
+			}
+		}
+
+		.mask{ 
+			display: block;
+			position: absolute;
+			top:-20em;
+			left: 0;
+			height: 100%;
+			width:100%;
+			background-color:$text-color;
+			opacity: 0.1;
+		}
+
+		.information{
+			position: absolute;
+			background-color: $text-color;
+			top: 20em;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0.9;
+			transition:all 0.4s ease-in-out;
+			text-align: left;
+			padding:0 1em;
+			box-sizing:border-box;
+			color: white;
+
+			h3{
+				font-size: 2em;
+				padding:1em 0;
+			}
+
+			.detail{
+				position: relative;
+				padding-top: 2em;
+				.avator{
+					position: absolute;
+					width: 3em;
+					height: 3em;
+					bottom:0;
+					border-radius: 100%;
+				}
+
+				p{
+					padding:0.5em 0 0 0;
+					font-size: 1.5em;
+				}
+
+				.contact{
+					margin-left: 4em;
+
+					.name{
+						font-weight: bold;
+						margin-right: .5em;
+					}
+
+					.role{
+						color:$light-text-color;
+					}
+				}
+
+				.like{
+					position: absolute;
+					font-size: 2em;
+					bottom:0;
+					right: 0;
+
+					color: white;
+					background-color:  hsl(160, 90%, 40%);
+					border: 1px solid  hsl(160, 90%, 40%);
+					padding:.2em;
+					border-radius: 100%;
+					transition: all .3s ease-in-out;
+
+		            &:hover {
+		                color: $heading-color;
+		                background-color: white;
+		                border: 1px solid transparent;
+		            }
+				}
+			}
+		} 
+	}  
+	@include clearfix; 
+}
+
+footer{ 
+	padding:1.5em;
+	background-color: rgb(50,50,50);
+	.span1{
+		color: rgba(255,255,255,0.8);
+	}
+	.span2{
+    	color: hsl(160, 90%, 40%);
+	}
+}
+
+@import "font-awesome";
